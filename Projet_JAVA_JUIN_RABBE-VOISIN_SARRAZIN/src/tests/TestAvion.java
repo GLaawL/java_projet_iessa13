@@ -1,4 +1,4 @@
-package modele;
+package tests;
 
 import java.awt.GridLayout;
 import java.sql.Time;
@@ -6,6 +6,10 @@ import java.sql.Time;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import modele.Aerodrome;
+import modele.Avion;
+import modele.Balise;
 
 public class TestAvion extends JPanel{
 		
