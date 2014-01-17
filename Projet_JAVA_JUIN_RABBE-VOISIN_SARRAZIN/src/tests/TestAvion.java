@@ -22,7 +22,6 @@ public class TestAvion extends JPanel{
 		public static void main(String[] args) {
 			String nom1="AtoA"; 
 			String nom2="BtoB";
-			String a;
 			String nom3="AtoB";
 			String nom4="BtoA";
 			Balise bDepart=new Balise("BREST", 10, 10);
