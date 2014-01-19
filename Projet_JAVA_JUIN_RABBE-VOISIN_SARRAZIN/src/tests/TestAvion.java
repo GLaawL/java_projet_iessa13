@@ -36,10 +36,10 @@ public class TestAvion extends JPanel{
 			int altitude=1800;
 			
 			// TEST DES 4 CONSTRUCTEURS
-			Avion a1=new Avion(nom1, aDepart, aArrive, tDepart1, tArrive1, vitesse, altitude); // TEST Aerodrome to Aerodrome
-			Avion a2=new Avion(nom2, bDepart, bArrive, tDepart2, tArrive2, vitesse, altitude); // TEST Balise to Balise
-			Avion a3=new Avion(nom3, aDepart, bArrive, tDepart1, tArrive1, vitesse, altitude); // TEST Aerodrome to Balise
-			Avion a4=new Avion(nom4, bDepart, aArrive, tDepart2, tArrive2, vitesse, altitude); // TEST Balise to Aerodrome
+			Avion a1=new Avion(nom1, aDepart, aArrive, tDepart1, vitesse, altitude); // TEST Aerodrome to Aerodrome
+			Avion a2=new Avion(nom2, bDepart, bArrive, tDepart2, vitesse, altitude); // TEST Balise to Balise
+			Avion a3=new Avion(nom3, aDepart, bArrive, tDepart1, vitesse, altitude); // TEST Aerodrome to Balise
+			Avion a4=new Avion(nom4, bDepart, aArrive, tDepart2, vitesse, altitude); // TEST Balise to Aerodrome
 			
 			System.out.println(a1);
 			System.out.println(a2);

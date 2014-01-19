@@ -4,12 +4,17 @@ import java.awt.Point;
 
 public abstract class SiteDGAC {
 
-	String nom;
-	Point coordonnees;
+	private String nom;
+	private Point coordonnees;
 	
 	public SiteDGAC(String nom, int x, int y){
 		this.nom=nom;
 		this.coordonnees = new Point(x,y);
+	}
+	
+	public SiteDGAC(String nom, Point coordonnees){
+		this.nom=nom;
+		this.coordonnees = coordonnees;
 	}
 
 	public String getNom() {
