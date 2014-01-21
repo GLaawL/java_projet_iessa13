@@ -3,6 +3,7 @@ package commun;
 import java.awt.Point;
 
 import exceptions.ExceptionCoefficientDirecteurInfini;
+import exceptions.ExceptionErreurCoordonneesGPS;
 
 public class Utilitaire {
 
@@ -44,5 +45,41 @@ public class Utilitaire {
 		int y = (int) (ratioDistance*(coordonneesProchainSiteDGAC.getY()-coordonneesDernierSiteDGAC.getY())+coordonneesDernierSiteDGAC.getY());
 
 		return new Point(x,y);
+	}
+	
+	public static Point transformeCoordonneesGPSenCoordonneesRefrentiel(float heureE, float minuteE, float secondeE, float heureN, float minuteN, float secondeN) throws ExceptionErreurCoordonneesGPS{
+		// TraitŽ les exceptions COORDONEES_OBSOLETE
+		
+		float latitudeCONVERSION, longitudeCONVERSION;
+		
+		
+		
+		latitudeCONVERSION=heureE+minuteE/60+secondeE/3600;
+		longitudeCONVERSION=heureN+minuteN/60+secondeN/3600;
+		return transformeCoordonneesGPSenCoordonneesRefrentiel (latitudeCONVERSION,longitudeCONVERSION);
+		
+	}
+	
+	public static Point transformeCoordonneesGPSenCoordonneesRefrentiel (float latitude, float longitudinale) throws ExceptionErreurCoordonneesGPS{ 
+		
+		@SuppressWarnings("unused")
+		final double LATITUDE=0;
+		final double LATITUDE_MAX=0;
+		final double LONGITUDE_MIN=0;
+		@SuppressWarnings("unused")
+		final double LONGITUDE_MAX=0;
+		final double REPERE_X_MAX=0;
+		final double REPERE_Y_MAX=0;
+		double X,Y;
+		
+		X=(REPERE_X_MAX/(LATITUDE_MAX-LONGITUDE_MIN)-REPERE_X_MAX);
+		Y=(REPERE_Y_MAX/(LATITUDE_MAX-LONGITUDE_MIN)-REPERE_Y_MAX);
+		
+		if(X>REPERE_X_MAX || Y>REPERE_Y_MAX){
+			throw new ExceptionErreurCoordonneesGPS();
+		}
+			
+		return new Point((int)X,(int)Y);
+			
 	}
 }
