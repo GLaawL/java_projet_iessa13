@@ -34,6 +34,7 @@ public class Avion extends JPanel{
 	private Trajectoire trajectoire;
 	
 	private boolean deplacementVerticale = false;
+	private int test;
 
 	//////////////////// Constructor
 
