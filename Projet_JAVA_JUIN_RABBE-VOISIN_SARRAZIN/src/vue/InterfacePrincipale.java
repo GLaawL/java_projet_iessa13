@@ -8,6 +8,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import commun.Utilitaire;
+
 public class InterfacePrincipale extends JFrame {
 
 	/**
@@ -33,7 +35,7 @@ public class InterfacePrincipale extends JFrame {
 		
 		//Initialisation de la JFrame
 		this.setTitle("PROJET JAVA By Juin & Rabbe-Voisin & Sarrazin");
-		this.setBounds(100, 100, 800, 600);
+		this.setBounds(1000, 1000, 800, 600);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}

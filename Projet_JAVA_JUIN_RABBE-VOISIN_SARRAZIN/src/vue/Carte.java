@@ -2,8 +2,18 @@ package vue;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.StringTokenizer;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
+import commun.Utilitaire;
+import exceptions.ExceptionErreurCoordonneesGPS;
 
 public class Carte extends JPanel{
 	
@@ -11,14 +21,107 @@ public class Carte extends JPanel{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	Point[] p4= new Point [1000];
+	Point[] p5= new Point [1000];
+	int i=0,k=0;
+	
 	public Carte(){
-		
+		String fichier1="aerodrome.txt";
+		String fichier2="balise.txt";
+    	String tampon=null, tampon1=null;;
+    	BufferedReader fe,fe1;
+        try {
+            fe = new BufferedReader(new FileReader(fichier1));
+            System.out.println("OK");
+            while ( (tampon=fe.readLine()) != null)
+                {
+                	
+                	StringTokenizer t=new StringTokenizer(tampon,", ");
+                	double latitude=Double.valueOf(t.nextToken());
+                	double longitude=Double.valueOf(t.nextToken());
+                	String nom=t.nextToken();
+                	
+                	try {
+                	
+						p4 [i]=Utilitaire.transformeCoordonneesGPSenCoordonneesRefrentiel(latitude,longitude);
+						i++;
+
+                	} catch (NumberFormatException e) {
+                		
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (ExceptionErreurCoordonneesGPS e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();					
+					}
+                }
+             fe.close();                
+        } catch (FileNotFoundException ex) {
+            
+        }
+        catch (IOException ex) {
+            
+        }
+        try {
+            fe1 = new BufferedReader(new FileReader(fichier2));
+            System.out.println("OK");
+            while ( (tampon1=fe1.readLine()) != null)
+                {
+                	
+                	StringTokenizer t1=new StringTokenizer(tampon1," ");
+                	
+                	String nom1=t1.nextToken();
+                	System.out.println(nom1);
+                	String altitude=t1.nextToken();
+                	System.out.println(altitude);
+                	String NS=t1.nextToken();
+                	System.out.println(NS);
+                	String longitude=t1.nextToken();
+                	System.out.println(longitude);
+                	String EO=t1.nextToken();
+                	System.out.println(EO);
+                	
+                	try {
+                		
+						p5 [k]=Utilitaire.transformeCoordonneesGPSenCoordonneesRefrentiel(altitude,NS,longitude,EO);
+						k++;
+
+                	} catch (NumberFormatException e) {
+                		System.out.println("BUG1");
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (ExceptionErreurCoordonneesGPS e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						System.out.println("BUG2");
+					}
+                	
+                }
+             fe1.close();                
+        } catch (FileNotFoundException ex) {
+            
+        }
+        catch (IOException ex) {
+            
+        }
 		this.setBackground(Color.WHITE);
 		
 	}
 	
 	public void paintComponent(Graphics g){
+		
+		for(int j=0;j<(i-1);j++){
+			System.out.println(p4[j].getX()+"="+(int)p4[j].getX());
+			System.out.println(p4[j].getY()+"="+(int)p4[j].getY());
+			g.fillOval((int)p4 [j].getX(), (int) p4 [j].getY(), 5, 5);
+		}
+		for(int l=0;l<(k-1);l++){	
+			g.setColor(Color.red);
+			g.fillOval((int)p5 [l].getX(), (int) p5 [l].getY(), 5, 5);
+		}
+		
+
+		
 		//System.out.println("Carte -> paintComponent");
 		/*super.paintComponent(g);
 		
