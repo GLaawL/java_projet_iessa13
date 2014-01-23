@@ -3,12 +3,26 @@ package commun;
 
 import java.awt.Point;
 
+import vue.InterfacePrincipale;
 import exceptions.ExceptionCoefficientDirecteurInfini;
 import exceptions.ExceptionErreurCoordonneesGPS;
 
 public class Utilitaire {
-
 	
+	public Utilitaire(){
+		
+	}
+	private static double REPERE_X_MAX=500;
+	private static double REPERE_Y_MAX=500;
+	
+
+	public double getREPERE_X_MAX() {
+		return REPERE_X_MAX;
+	}
+
+	public double getREPERE_Y_MAX() {
+		return REPERE_Y_MAX;
+	}
 
 	public static double calculerDistanceEntreDeuxPoints(Point a, Point b) {
 		return Math.sqrt(Math.pow(b.getX()-a.getX(), 2)+Math.pow(b.getY()-a.getY(), 2));
@@ -80,8 +94,7 @@ public class Utilitaire {
 		final double LATITUDE_MIN=-5.1;
 		@SuppressWarnings("unused")
 		final double LATITUDE_MAX=10.107;
-		final double REPERE_X_MAX=425;
-		final double REPERE_Y_MAX=400;
+		
 		double X,Y;
 		
 		X=((REPERE_X_MAX/(LATITUDE_MAX-LATITUDE_MIN))*latitude-((REPERE_X_MAX*LATITUDE_MIN)/(LATITUDE_MAX-LATITUDE_MIN)));

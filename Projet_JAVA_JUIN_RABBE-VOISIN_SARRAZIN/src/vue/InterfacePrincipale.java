@@ -24,7 +24,25 @@ public class InterfacePrincipale extends JFrame {
 					, menuItemDerouterAvion = new JMenuItem("Derouter avion")
 					, menuItemQuitter = new JMenuItem("Quitter");
 	private Carte carte = new Carte();
+	private static int Xrepere=1000;
+	private static int Yrepere=1000;
 	
+	public static int getXrepere() {
+		return Xrepere;
+	}
+
+	public void setXrepere(int xrepere) {
+		Xrepere = xrepere;
+	}
+
+	public static int getYrepere() {
+		return Yrepere;
+	}
+
+	public void setYrepere(int yrepere) {
+		Yrepere = yrepere;
+	}
+
 	public InterfacePrincipale(){
 		
 		// Gestion de la barre des menus
@@ -35,7 +53,7 @@ public class InterfacePrincipale extends JFrame {
 		
 		//Initialisation de la JFrame
 		this.setTitle("PROJET JAVA By Juin & Rabbe-Voisin & Sarrazin");
-		this.setBounds(1000, 1000, 800, 600);
+		this.setBounds(800, 800, 500, 550);;
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
