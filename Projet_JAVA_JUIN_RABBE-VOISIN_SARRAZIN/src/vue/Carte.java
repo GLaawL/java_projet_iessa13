@@ -32,7 +32,6 @@ public class Carte extends JPanel{
     	BufferedReader fe,fe1;
         try {
             fe = new BufferedReader(new FileReader(fichier1));
-            System.out.println("OK");
             while ( (tampon=fe.readLine()) != null)
                 {
                 	
@@ -64,22 +63,17 @@ public class Carte extends JPanel{
         }
         try {
             fe1 = new BufferedReader(new FileReader(fichier2));
-            System.out.println("OK");
+           
             while ( (tampon1=fe1.readLine()) != null)
                 {
                 	
-                	StringTokenizer t1=new StringTokenizer(tampon1," ");
-                	
-                	String nom1=t1.nextToken();
-                	System.out.println(nom1);
-                	String altitude=t1.nextToken();
-                	System.out.println(altitude);
-                	String NS=t1.nextToken();
-                	System.out.println(NS);
-                	String longitude=t1.nextToken();
-                	System.out.println(longitude);
+                	StringTokenizer t1=new StringTokenizer(tampon1," ");                	
+                	String nom1=t1.nextToken();                	
+                	String altitude=t1.nextToken();                
+                	String NS=t1.nextToken();                	
+                	String longitude=t1.nextToken();               	
                 	String EO=t1.nextToken();
-                	System.out.println(EO);
+                	
                 	
                 	try {
                 		
@@ -87,13 +81,12 @@ public class Carte extends JPanel{
 						k++;
 
                 	} catch (NumberFormatException e) {
-                		System.out.println("BUG1");
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (ExceptionErreurCoordonneesGPS e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-						System.out.println("BUG2");
+
 					}
                 	
                 }
@@ -111,8 +104,7 @@ public class Carte extends JPanel{
 	public void paintComponent(Graphics g){
 		
 		for(int j=0;j<(i-1);j++){
-			System.out.println(p4[j].getX()+"="+(int)p4[j].getX());
-			System.out.println(p4[j].getY()+"="+(int)p4[j].getY());
+			
 			g.fillOval((int)p4 [j].getX(), (int) p4 [j].getY(), 5, 5);
 		}
 		for(int l=0;l<(k-1);l++){	
