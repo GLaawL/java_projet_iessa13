@@ -3,6 +3,7 @@ package vue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -17,6 +18,7 @@ public class InterfacePrincipale extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JMenu menu = new JMenu("Fichiers");
+	
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenuItem menuItemInitialisation = new JMenuItem("Initialisation Aerodromes et Balises")
 					, menuItemChargerPlansDeVol = new JMenuItem("Charger plans de vol")
@@ -26,6 +28,7 @@ public class InterfacePrincipale extends JFrame {
 	private Carte carte = new Carte();
 	private static int Xrepere=1000;
 	private static int Yrepere=1000;
+	
 	
 	public static int getXrepere() {
 		return Xrepere;
@@ -50,6 +53,7 @@ public class InterfacePrincipale extends JFrame {
 		
 		// Initialisation du JPanel
 		this.setContentPane(carte);
+		
 		
 		//Initialisation de la JFrame
 		this.setTitle("PROJET JAVA By Juin & Rabbe-Voisin & Sarrazin");
